@@ -86,7 +86,7 @@ Tabla_por_Macrozona <- objeto_enc %>%
   summarise(Clasificación_Internacional_de_la_situación_en_el_empleo = survey_prop(vartype = "ci", na.rm = T))
             
            #### 
-            
+##############AAAA no alcance, igual lo voy a terminar para poder dar con la tabla, pero no llego con el tiempo de hoy            
             Registro_en_impuestos_internos,
             Ganancias_mensual_de_los_microemprendedores_as,
             Ganancias_mensual_de_los_microemprendedores_as) %>% 

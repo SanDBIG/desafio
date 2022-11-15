@@ -1,0 +1,28 @@
+{
+    "id": "DEA009EA",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1668477126606.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "id": "6acce3ff0785482dadc2bd5ad52286a9",
+        "name": "objeto_enc",
+        "title": "objeto_enc",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 2308706573220602214,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1668477126606,
+    "read_only": false,
+    "read_only_alternatives": []
+}
