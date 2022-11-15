@@ -79,25 +79,45 @@ objeto_enc <- as_survey_design(datos_proc,
                  id= Identificador_único_de_personas,
                  weights = Factor_de_expansión_de_personas)
 
-####Tabla------------------------------------------------------------------------------------------------------
-
+####Tabla hasta las 23.59------------------------------------------------------------------------------------------------------
+#Este fue mi avance hasta las 23.59
 Tabla_por_Macrozona <- objeto_enc %>% 
   group_by(Macrozona) %>%
   summarise(Clasificación_Internacional_de_la_situación_en_el_empleo = survey_prop(vartype = "ci", na.rm = T))
             
-           #### 
-            
+####Tabla completa despues de tiempo-------------------------------------------------------------------------------------------
+
+as_factor()
+
+#####
+
+Tabla_por_Macrozona <- objeto_enc %>% 
+  group_by(Macrozona) %>%
+  summarise(Clasificación_Internacional_de_la_situación_en_el_empleo = sum(Clasificación_Internacional_de_la_situación_en_el_empleo/n(),
+                                                                           survey_prop(Registro_en_impuestos_internos))
+            (vartype = "ci",
+                                                                                    na.rm = T,
+                                                                                    deff = F))
+
+
+######
+Tabla_por_Macrozona <- objeto_enc %>%
+  group_by(Macrozona) %>%
+  summarise(Clasificación_Internacional_de_la_situación_en_el_empleo = survey_total(vartype = "cv",na.rm = T),
+            Registro_contable = survey_prop(vartype = "ci", na.rm = T),
+            Ganancias_mensual_de_los_microemprendedores_as = survey_total(vartype = "ci", na.rm = T),
+            Clasificación_Internacional_de_la_situación_en_el_empleo = survey_prop(vartype = "ci", na.rm = T)) %>% 
+  mutate(Clasificación_Internacional_de_la_situación_en_el_empleo, case_when())
+
+#####No supe como agrupar las variables, se me ocurrio hacer mutate para crear variables adicionales dentro del objeto encuesta y poder
+### crear las variables que pide la tabla pero, dada la hora que es ya no alcanzo a hacer más
+
+          
             Registro_en_impuestos_internos,
-            Ganancias_mensual_de_los_microemprendedores_as,
-            Ganancias_mensual_de_los_microemprendedores_as) %>% 
+           Ganancias_mensual_de_los_microemprendedores_as,
+           Ganancias_mensual_de_los_microemprendedores_as) %>% 
   
   select(Clasificación_Internacional_de_la_situación_en_el_empleo,
-         Registro_en_impuestos_internos,
+        Registro_en_impuestos_internos,
          Ganancias_mensual_de_los_microemprendedores_as,
          Ganancias_mensual_de_los_microemprendedores_as)
-  
-
-
-
-
-
